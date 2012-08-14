@@ -18,10 +18,31 @@ $fg-max-width: $max-width;
     left: auto;
     right: auto;
   }
+
+  @if $border-box-sizing == true {
+    max-width: $fg-max-width + ($fg-gutter*2);
+    padding: {
+      left: $fg-gutter;
+      right: $fg-gutter;
+    }
+  }
+
+  @else {
+    padding: {
+      left: $fg-gutter;
+      right: $fg-gutter;
+    }
+  }
 }
 
 // Grid span columns
-@mixin span-columns($columns, $container-columns: $fg-max-columns, $display: block) {
+@mixin span-columns(
+  $columns,
+  $container-columns: $fg-max-columns, 
+  $display: block,
+  $from: left,
+  $end: false
+) {
 
   @if $display == table {
     display: table-cell;
@@ -29,6 +50,10 @@ $fg-max-width: $max-width;
     width: flex-grid($columns, $container-columns) + flex-gutter($container-columns);
 
     &:last-child {
+      padding-right: 0;
+    }
+
+    @if $end == true {
       padding-right: 0;
     }
   }
@@ -41,15 +66,23 @@ $fg-max-width: $max-width;
     &:last-child {
       margin-right: 0;
     }
+
+    @if $end == true {
+      margin-right: 0;
+    }
   }
 
   @else {
     display: block;
-    float: left;
+    float: $from;
     margin-right: flex-gutter($container-columns);
     width: flex-grid($columns, $container-columns);
 
     &:last-child {
+      margin-right: 0;
+    }
+
+    @if $end == true {
       margin-right: 0;
     }
   }
@@ -58,6 +91,7 @@ $fg-max-width: $max-width;
 // Clearfix / row container
 @mixin row($display: block) {
   @include clearfix;
+
   @if $display == table {
     display: table;
   }
