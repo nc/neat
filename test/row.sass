@@ -1,0 +1,19 @@
+@import setup
+
+.row-default
+  +row
+
+.row-table
+  +row(table)
+
+.row-invalid-display
+  +row(invalid-argument)
+
+.row-table-reset
+  +row(table)
+  .block-child
+    +span-columns(4, block)
+    +reset-display
+
+.no-row
+  +span-columns(4)

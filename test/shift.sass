@@ -1,0 +1,27 @@
+@import setup
+
+.shift-positive
+  +shift(2)
+
+.shift-negative
+  +shift(-3)
+
+// Nesting
+.shifted-parent
+  +span-columns(6)
+  .shifted-child
+    +span-columns(2 of 6)
+    +shift(2)
+
+.post-nested-shift
+  +shift(2)
+
+// Changing direction
+section
+  +row($direction: RTL)
+  .shift-negative
+    +shift(-3)
+    +reset-layout-direction
+
+.shift-default
+  +shift

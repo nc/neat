@@ -1,0 +1,21 @@
+@import setup
+
+.media-default
+  +media(481px)
+    color: #000
+
+.media-max-width
+  +media(max-width 480px)
+    position: relative
+
+.media-min-max-width
+  +media(min-width 320px max-width 480px)
+    position: relative
+
+.change-media-context
+  +media(481px, 6)
+    +span-columns(6)
+
+.change-media-context-shorthand
+  +media(max-width 480px 6)
+    +span-columns(6)

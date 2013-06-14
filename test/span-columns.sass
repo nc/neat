@@ -1,0 +1,15 @@
+@import setup
+
+.span-columns-default
+  +span-columns(6)
+  .span-columns-nested
+    +span-columns(2 of 6)
+
+.span-columns-table
+  +span-columns(6, table)
+
+.span-columns-inline-block
+  +span-columns(6, inline-block)
+
+.span-columns-collapse
+  +span-columns(6, collapse)

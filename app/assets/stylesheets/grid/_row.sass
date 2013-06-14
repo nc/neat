@@ -1,0 +1,11 @@
+=row($display: block, $direction: $default-layout-direction)
+  +clearfix
+  $layout-direction: $direction
+  @if $display == table
+    display: table
+    +fill-parent
+    table-layout: fixed
+    $container-display-table: true
+  @else
+    display: block
+    $container-display-table: false

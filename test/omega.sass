@@ -1,0 +1,28 @@
+@import setup
+
+.omega-default
+  +omega
+
+.omega-table
+  +omega(table)
+
+.omega-nth-default
+  +omega(4n)
+
+.omega-nth-table
+  +omega(4n table)
+
+.omega-complex-nth
+  +omega("4n+1")
+
+section
+  +row($direction: RTL)
+  .omega-default-left
+    +omega
+  .omega-table-left
+    +omega(table)
+  .omega-nth-default-left
+    +omega(4n block)
+  .omega-nth-table-left
+    +omega(4n table)
+    +reset-layout-direction
